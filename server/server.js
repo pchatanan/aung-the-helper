@@ -19,11 +19,14 @@ const config = {
     channelSecret: CHANNEL_SECRET
 }
 
-app.post('/webhook', line.middleware(config), (req, res) => {
-Promise
-    .all(req.body.events.map(handleEvent))
-    .then((result) => res.json(result));
-});
+// app.post('/webhook', line.middleware(config), (req, res) => {
+
+// Promise
+//     .all(req.body.events.map(handleEvent))
+//     .then((result) => res.json(result));
+// });
+
+app.post('/webhook', (req, res)=> res.sendStatus(200))
 
 const client = new line.Client(config);
 function handleEvent(event) {
